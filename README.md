@@ -1,2 +1,1 @@
-# DataScience_and_AI
-ML models and NLP
+# Data related projects
