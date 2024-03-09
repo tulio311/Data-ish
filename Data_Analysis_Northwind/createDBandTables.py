@@ -71,12 +71,15 @@ def createTable(name : str,fields : List[str],
     except Exception as e:
         print(e)
 
+f = open('pass.txt','r')
+pwd = f.read()
+f.close()
 
 conn = psycopg2.connect(
         host="localhost",
         database="postgres",
         user="postgres",
-        password="153608"
+        password=pwd
 )
 
 conn.autocommit = True
@@ -92,9 +95,6 @@ except:
 cur.close()
 conn.close()
 
-f = open('pass.txt','r')
-pwd = f.read()
-f.close()
 
 conn = psycopg2.connect(
         host="localhost",
