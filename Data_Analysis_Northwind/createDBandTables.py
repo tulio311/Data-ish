@@ -92,12 +92,15 @@ except:
 cur.close()
 conn.close()
 
+f = open('pass.txt','r')
+pwd = f.read()
+f.close()
 
 conn = psycopg2.connect(
         host="localhost",
         database="northwind",
         user="postgres",
-        password="153608"
+        password=pwd
 )
 
 conn.autocommit = True
