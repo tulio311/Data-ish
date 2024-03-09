@@ -3,14 +3,17 @@ from typing import List
 
 # This is a function for creating a table in a PostgreSQL database
 
-# fields gets a dictionary with the table fields as keys and the
-# default values as values of those keys (receives None if there is no default value).
+# fields gets a list with the table fields
 
 # primaryKey gets the name of the column which has the primary key.
 
-# Autoincrement gets a string of boolean indicators for each column in the table. 
+# Autoincrement gets a list of boolean indicators for each column in the table. 
 
-# foreignKeys gets a list of strings or None values
+# default gets a list with the default values or None if there is no default value.
+
+# foreignKeys gets a list of bools indicating if each field is a foreign key
+
+# parentTables gets a list of the parent tables for the foreign keys in the same order
 
 def createTable(name : str,fields : List[str],
                 types : List[str], primaryKey : str,
@@ -67,7 +70,7 @@ def createTable(name : str,fields : List[str],
         print(f"Table {name} created")
     except Exception as e:
         print(e)
-        
+
 
 conn = psycopg2.connect(
         host="localhost",
